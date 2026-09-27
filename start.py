@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
-import sys
 
 HERE = Path(__file__).resolve().parent
 
 
 def _load_legacy_start():
     candidates = [
-        HERE / "start.py",
         HERE / "start.py (corrigé v2).py",
         HERE / "start (corrigé v2).py",
     ]
@@ -27,5 +25,4 @@ legacy = _load_legacy_start()
 
 
 if __name__ == "__main__":
-    # Reuse the original entry point behaviour while keeping the standard script path.
     legacy.main()
